@@ -1,15 +1,15 @@
- 
-
 import { useGetAdvertsQuery } from "../../redux/adverts/advertsOperations";
 import { useState, useEffect } from "react";
-import { CatalogNav } from "./CatalogNav/CatalogNav";
 import { Modal } from "../Modal/Modal";
+
+import * as SC from "./Catalog.styled"
 
 export const Catalog = () => {
   const { data, isLoading, error } = useGetAdvertsQuery();
 
   const [receivedAdverts, setReceivedAdverts] = useState([]);
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const [selectedAdvert, setSelectedAdvert] = useState(null);
 
   useEffect(() => {
     if (data && data.length > 0) {
@@ -26,7 +26,8 @@ export const Catalog = () => {
     }
   };
 
-  const toggleModal = () => {
+  const toggleModal = (advert) => {
+    setSelectedAdvert(advert);
     setIsOpenModal(!isOpenModal);
   };
 
@@ -34,28 +35,31 @@ export const Catalog = () => {
   if (error) return <p>Error fetching data</p>;
 
   return (
-    <>
-
-      {isOpenModal && (
-        <Modal toggleModal={toggleModal}>
+    <SC.Container>
+      {isOpenModal && selectedAdvert && (
+        <Modal toggleModal={toggleModal} advert={selectedAdvert}>
           <p>Modal Content Here</p>
         </Modal>
       )}
       <ul>
-        {receivedAdverts?.map(({ _id, name, price, gallery }) => (
-          <li key={_id}>
-            <p>
-              {name}, {_id}, {price}, {gallery}
-            </p>
-            <img 
+        {receivedAdverts?.map((advert) => (
+          <SC.List key={advert._id}>
+            <SC.Image 
               loading="lazy"
-              src={gallery[0]}
-              alt={name}
+              src={advert.gallery[0]}
+              alt={advert.name}
             />
-            <button onClick={toggleModal}>
-                Show More
-            </button>
-          </li>
+            <SC.ContentWrap>
+              <p>{advert.name}</p>
+              <p>{advert.rating}</p>
+              <p>{advert.location}</p>
+              <p>{advert.price}</p>
+              <button onClick={() => toggleModal(advert)}>
+                  Show More
+              </button>
+            </SC.ContentWrap>
+          </SC.List>
+
         ))}
       </ul>
       {data && receivedAdverts.length < data.length && (
@@ -63,7 +67,6 @@ export const Catalog = () => {
           Load More
         </button>
       )}
-      <CatalogNav />
-    </>
+    </SC.Container>
   );
 };

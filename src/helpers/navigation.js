@@ -8,14 +8,10 @@ export const mainNav = [
         id: 2,
         href: "/catalog",
         text: "Catalog"
-    }
-]
-
-export const catalogNav = [
+    },
     {
-        id: 1,
+        id: 3,
         href: "/favorite",
-        text: "Favorite"
-
+        text: "Your Favorites"
     }
 ]
