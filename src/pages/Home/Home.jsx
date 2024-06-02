@@ -1,4 +1,3 @@
-import React from "react";
 import * as SC from "./Home.styled";
 
 export const Home = () => {

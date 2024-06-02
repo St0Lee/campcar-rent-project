@@ -5,7 +5,6 @@ export const HeaderNav = () => {
     return(
         <>
             <SC.List>
-                <p>WanderWheels Rentals</p>
                 {mainNav.map(({id, href, text}) => <SC.ListElements key={id}>
                     <SC.NavLinkStyled to={href}>
                         {text}

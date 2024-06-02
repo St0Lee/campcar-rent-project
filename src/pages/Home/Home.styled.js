@@ -16,18 +16,17 @@ export const Background = styled.div`
     background-size: cover;
     background-position: center;
     transform: scale(1.1);
-    
   }
 `;
+
 export const Content = styled.div`
   position: relative;
   z-index: 1;
-  color: white;
+  color: ${props => props.theme.colors.primaryText};
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: 300px;
-  color: ${props => props.theme.colors.primaryText};
   text-align: center;
   text-shadow: ${props => props.theme.shadows.textShadow};
 `;
