@@ -1,6 +1,6 @@
 import { Layout } from "../../components/Layout/Layout";
 import { CatalogPage  } from "../../pages/CatalogPage/CatalogPage";
-import { Favorite } from "../../pages/Favorite/Favorite";
+import { FavoritePage } from "../../pages/FavoritePage/FavoritePage";
 import { Home } from "../../pages/Home/Home";
 import { NotFoundPage } from "../../pages/NotFoundPage/NotFoundPage";
 
@@ -19,7 +19,7 @@ export const routes = [
                     path: "/catalog"
                 },
                 {
-                    element: <Favorite />,
+                    element: <FavoritePage />,
                     path: "/favorite"
                 },
                 {

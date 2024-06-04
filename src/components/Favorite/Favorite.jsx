@@ -1,28 +1,55 @@
-import { Link } from "react-router-dom";
-import moviePlaceholder from "../../images/movie-poster-placeholder.png"
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useFavorite } from "../../helpers/hooks/useFavorite";
+import { useShowMore } from "../../helpers/hooks/useShowMore";
+import * as SC from "./Favorite.styled";
+import { Modal } from "../Modal/Modal";
 
 export const Favorite = () => {
+  const { favoriteStatus, handleFavoriteClick } = useFavorite();
+  const [adverts, setAdverts] = useState([]);
+  const { receivedAdverts, loadMoreItems, isOpenModal, selectedItem, toggleModal } = useShowMore(adverts);
 
-const [advert] = useState(() => {
-    const data = JSON.parse(localStorage.getItem("favorite")) ?? []; 
-    return data;
-    }
-);
+  useEffect(() => {
+    const storedAdverts = JSON.parse(localStorage.getItem("favorite")) ?? [];
+    setAdverts(storedAdverts);
+  }, [favoriteStatus]);
 
-return (
-        <ul>
-        {advert?.map(({id, title, release_date, poster_path, vote_average}) => 
-        <li key={id}>
-            <Link to={`/movie/${id}`}>
-                <img loading="lazy" 
-                src={ poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : moviePlaceholder}
-                alt={title} />
-                <h1>{title}</h1>
-                <p>{release_date}</p>
-                <p>{vote_average.toFixed(1)}/10</p>
-            </Link>
-        </li>)}
-        </ul>
-)
+  return (
+    <SC.Container>
+      {isOpenModal && selectedItem && (
+        <Modal toggleModal={toggleModal} advert={selectedItem}>
+          {/* Modal content */}
+        </Modal>
+      )}
+      <ul>
+        {receivedAdverts?.map((advert) => (
+          <SC.List key={advert._id}>
+            <SC.Image 
+              loading="lazy"
+              src={advert.gallery[0]}
+              alt={advert.name}
+            />
+            <SC.ContentWrap>
+              <button type="button" onClick={() => handleFavoriteClick(advert)}>
+                {favoriteStatus[advert._id] ? "Remove" : "Add"}
+              </button>
+              <p>{advert.name}</p>
+              <p>{advert.rating}</p>
+              <p>{advert.location}</p>
+              <p>{advert.price}</p>
+              <button onClick={() => toggleModal(advert)}>
+                Show More
+              </button>
+            </SC.ContentWrap>
+          </SC.List>
+        ))}
+      </ul>
+      {adverts?.length > receivedAdverts.length && (
+        <button type="button" onClick={loadMoreItems}>
+          Load More
+        </button>
+      )}
+    </SC.Container>
+  );
 };
+
