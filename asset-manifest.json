@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.js": "/campcar-rent-project/static/js/main.fbaea817.js",
+    "static/js/147.bf6906ab.chunk.js": "/campcar-rent-project/static/js/147.bf6906ab.chunk.js",
+    "static/js/245.c3e587f1.chunk.js": "/campcar-rent-project/static/js/245.c3e587f1.chunk.js",
+    "static/js/788.3fddf501.chunk.js": "/campcar-rent-project/static/js/788.3fddf501.chunk.js",
+    "static/js/739.92e9c272.chunk.js": "/campcar-rent-project/static/js/739.92e9c272.chunk.js",
+    "static/js/378.a5001914.chunk.js": "/campcar-rent-project/static/js/378.a5001914.chunk.js",
+    "static/js/761.cf47af5c.chunk.js": "/campcar-rent-project/static/js/761.cf47af5c.chunk.js",
+    "static/media/home-background.jpeg": "/campcar-rent-project/static/media/home-background.3e22967e32d0f251ebea.jpeg",
+    "static/media/icons.svg": "/campcar-rent-project/static/media/icons.8c3a4ecdda6003d80823e26659bc7ad2.svg",
+    "index.html": "/campcar-rent-project/index.html",
+    "main.fbaea817.js.map": "/campcar-rent-project/static/js/main.fbaea817.js.map",
+    "147.bf6906ab.chunk.js.map": "/campcar-rent-project/static/js/147.bf6906ab.chunk.js.map",
+    "245.c3e587f1.chunk.js.map": "/campcar-rent-project/static/js/245.c3e587f1.chunk.js.map",
+    "788.3fddf501.chunk.js.map": "/campcar-rent-project/static/js/788.3fddf501.chunk.js.map",
+    "739.92e9c272.chunk.js.map": "/campcar-rent-project/static/js/739.92e9c272.chunk.js.map",
+    "378.a5001914.chunk.js.map": "/campcar-rent-project/static/js/378.a5001914.chunk.js.map",
+    "761.cf47af5c.chunk.js.map": "/campcar-rent-project/static/js/761.cf47af5c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.fbaea817.js"
+  ]
+}
