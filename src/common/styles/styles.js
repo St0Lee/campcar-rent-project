@@ -32,7 +32,6 @@ export const theme = Object.freeze({
     buttonHover: '#D84343',
     input: '#F7F7F7',
     blockFeatures: '#f2f4f7',
-    rating: '#ffc531'
   },
   radius: {
     none: '0',

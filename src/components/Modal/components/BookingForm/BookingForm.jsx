@@ -1,5 +1,7 @@
- import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Calendar } from "./Calendar/Calendar";
+
+import * as SC from "./BookingForm.styled"
 
 export const BookingForm = () => {
   const { register, handleSubmit, setValue, formState: { errors } } = useForm();
@@ -14,41 +16,45 @@ export const BookingForm = () => {
   };
 
   return (
-    <>
-      <h2>Book your campervan now</h2>
-      <p>Stay connected! We are always ready to help you.</p>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <SC.Container>
+      <SC.Header>Book your campervan now</SC.Header>
+      <SC.Text>Stay connected! We are always ready to help you.</SC.Text>
+      <SC.Form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <input
+          <SC.Input
             id="name"
+            placeholder="Name"
             {...register("name", { required: "Name is required" })}
           />
-          {errors.name && <p className="error">{errors.name.message}</p>}
+          {errors.name && <SC.ErrorText className="error">{errors.name.message}</SC.ErrorText>}
         </div>
         <div>
-          <input
+          <SC.Input
             id="email"
             type="email"
+            placeholder="Email"
             {...register("email", { required: "Email is required" })}
           />
-          {errors.email && <p className="error">{errors.email.message}</p>}
+          {errors.email && <SC.ErrorText className="error">{errors.email.message}</SC.ErrorText>}
         </div>
         <div>
-          <input
+          <SC.Input
             type="hidden"
+            placeholder="Email"
             {...register("date", { required: "Date is required" })}
           />
           <Calendar handleDateChange={handleDateChange} />
-          {errors.date && <p className="error">{errors.date.message}</p>}
+          {errors.date && <SC.ErrorText className="error">{errors.date.message}</SC.ErrorText>}
         </div>
         <div>
-          <input
+          <SC.Input
             id="comment"
-            {...register("comment")}
+            placeholder="Comment"
+            {...register("comment")} 
           />
         </div>
-        <button type="submit">Submit</button>
-      </form>
-    </>
+      </SC.Form>
+      <SC.Button type="submit">Send</SC.Button >
+    </SC.Container>
   );
 };

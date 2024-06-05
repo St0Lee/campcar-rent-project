@@ -1,19 +1,26 @@
 import { BookingForm } from "../BookingForm/BookingForm";
+import { Rating } from "./Rating/Rating";
+
+import * as SC from "./Reviews.styled";
 
 export const Reviews = ({ reviews }) => {
   return (
-    <div>
-      <h3>Reviews</h3>
-      <ul>
+    <SC.Container>
+      <SC.ReviewList>
         {reviews?.map(({ reviewer_name, reviewer_rating, comment }, i) => (
-          <li key={i}>
-            <p>{reviewer_name}</p>
-            <p>{reviewer_rating}</p>
-            <p>{comment}</p>
-          </li>
+          <SC.ReviewItem key={i}>
+            <SC.ReviewerInfo>
+              <SC.Circle>{reviewer_name.charAt(0)}</SC.Circle>
+              <SC.InfoItem>
+                <SC.Name>{reviewer_name}</SC.Name>
+                <Rating rating={reviewer_rating} />
+              </SC.InfoItem>
+              </SC.ReviewerInfo>
+                <SC.Comment>{comment}</SC.Comment>
+            </SC.ReviewItem>
         ))}
-      </ul>
+      </SC.ReviewList>
       <BookingForm />
-    </div>
+    </SC.Container>
   );
 };

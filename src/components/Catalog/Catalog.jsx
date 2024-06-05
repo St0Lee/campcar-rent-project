@@ -62,9 +62,8 @@ export const Catalog = () => {
     
       <SC.Container>
         {isOpenModal && selectedItem && (
-          <Modal toggleModal={toggleModal} advert={selectedItem}>
-            text
-          </Modal>
+          <Modal toggleModal={toggleModal} advert={selectedItem} />
+
         )}
         <SC.FiltersWrap>
           <LocationFilter locationFilter={locationFilter} handleLocationFilter={handleLocationFilter} />
@@ -107,7 +106,9 @@ export const Catalog = () => {
                         {advert.location}
                     </SC.Location>
                   </SC.CardItem>
-                  <p>{shortDescription(advert.description, 100)}</p>
+                  <SC.Description>
+                    {shortDescription(advert.description, 100)}
+                  </SC.Description>
                   <SC.SpecTags>
                     <SC.Tag>
                       <SC.Icon>
@@ -135,7 +136,7 @@ export const Catalog = () => {
                     </SC.Tag>}
                     <SC.Tag>
                       <SC.Icon>
-                        <use href={`${icon}#bed`} />
+                        <use href={`${icon}#beds`} />
                       </SC.Icon>
                         {advert.details.beds} beds
                     </SC.Tag>

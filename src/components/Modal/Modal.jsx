@@ -5,6 +5,10 @@ import { ImCross } from 'react-icons/im';
 import { Reviews } from './components/Reviews/Reviews';
 import { Features } from './components/Features/Features';
 
+import icon from '../../pictures/icons.svg'
+
+import { GoStarFill } from "react-icons/go";
+
 import * as SC from './Modal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -42,30 +46,53 @@ export const Modal = ({ toggleModal, advert }) => {
         <SC.CloseBtn type="button" onClick={toggleModal}>
           <ImCross size="16" />
         </SC.CloseBtn>
-        <p>{advert.name}</p>
-        <p>{advert.rating}</p>
-        <p>{advert.location}</p>
-        <p>{advert.price}</p>
-        <SC.Image
-          loading="lazy"
-          src={advert.gallery[0]}
-          alt={advert.name}
-        />
-        <SC.Image
-          loading="lazy"
-          src={advert.gallery[1]}
-          alt={advert.name}
-        />
-        <SC.Image
-          loading="lazy"
-          src={advert.gallery[2]}
-          alt={advert.name}
-        />
-        <p>{advert.description}</p>
-        <button onClick={() => toggleSection('reviews')}>Reviews</button>
-        <button onClick={() => toggleSection('details')}>Details</button>
+        <SC.Header>{advert.name}</SC.Header>
+        <SC.CardItem>
+          <SC.Rating>
+          <GoStarFill size="16" color="#FFC531" />
+            {advert.rating}({advert.reviews.length} Reviews)
+          </SC.Rating>
+          <SC.Location>
+            <SC.Icon>
+              <use href={`${icon}#place-marker`} />
+            </SC.Icon>
+              {advert.location}
+          </SC.Location>
+        </SC.CardItem>
+        <SC.Price>
+          €{advert.price}.00
+        </SC.Price>
+        <SC.ImgWrapper>
+        <SC.ImgWrap>
+          <SC.Image
+            loading="lazy"
+            src={advert.gallery[0]}
+            alt={advert.name}
+          />
+        </SC.ImgWrap>
+          <SC.ImgWrap>
+          <SC.Image
+            loading="lazy"
+            src={advert.gallery[1]}
+            alt={advert.name}
+          />
+          </SC.ImgWrap>
+          <SC.ImgWrap>
+          <SC.Image
+            loading="lazy"
+            src={advert.gallery[2]}
+            alt={advert.name}
+          />
+          </SC.ImgWrap>
+        </SC.ImgWrapper>
+        <SC.Description>
+          {advert.description}
+        </SC.Description>
+          <SC.FeaturesBtn active={activeSection === 'features'} onClick={() => toggleSection('features')}>Features</SC.FeaturesBtn>
+          <SC.ReviewsBtn active={activeSection === 'reviews'} onClick={() => toggleSection('reviews')}>Reviews</SC.ReviewsBtn>
+          <SC.Divider />
         {activeSection === 'reviews' && <Reviews reviews={advert.reviews}/>}
-        {activeSection === 'details' && <Features advert={advert} />}
+        {activeSection === 'features' && <Features advert={advert} />}
       </SC.Inner>
     </SC.Overlay>,
     modalRoot

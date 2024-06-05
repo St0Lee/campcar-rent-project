@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+    font-family: ${props => props.theme.fonts.body};
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 40px 50px 40px;
+`;
+
 export const Wrap = styled.div`
     display: flex;
     justify-content: center;
@@ -13,13 +20,6 @@ export const FiltersWrap = styled.div`
     gap: 32px;
     line-height: ${props => props.theme.lineHeights.body};
 `
-
-export const Container = styled.div`
-    font-family: ${props => props.theme.fonts.body};
-    display: flex;
-    gap: 20px;
-    margin: 50px 40px 50px 40px;
-`;
 
 export const List = styled.ul`
     display: flex;
@@ -35,12 +35,10 @@ export const ListItem = styled.li`
 
 export const ImgWrap = styled.div`
     overflow: hidden;
-    min-width: 290px;
     max-width: 290px;
     height: 310px;
     border-radius: 10px;
     margin-right: 24px;
-    
 `;
 
 export const Image = styled.img`
@@ -64,6 +62,12 @@ export const CardContent = styled.div`
     justify-content: space-between;
 
 `
+
+export const Description = styled.p`
+  margin-top: 24px;
+  line-height: 150%;
+  color: ${(props) => props.theme.colors.mainBlack};
+`;
 
 export const SpecTags = styled.div`
     margin: 0;

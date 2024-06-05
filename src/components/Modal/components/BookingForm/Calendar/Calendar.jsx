@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import * as SC from "./Calendar.styled";
+
 export const Calendar = ({ handleDateChange }) => {
   const [selectedDate, setSelectedDate] = useState("");
 
@@ -10,13 +12,13 @@ export const Calendar = ({ handleDateChange }) => {
   };
 
   return (
-    <div>
-      <input
+    <SC.Container>
+      <SC.Input
         id="datePicker"
         type="date"
         value={selectedDate}
         onChange={onDateChange}
       />
-    </div>
+    </SC.Container>
   );
 };
