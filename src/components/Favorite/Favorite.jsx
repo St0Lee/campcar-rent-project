@@ -27,37 +27,37 @@ export const Favorite = () => {
       )}
       <SC.Wrap>
         <SC.List>
-          {receivedAdverts?.map((advert) => (
-            <SC.ListItem key={advert._id}>
-              <SC.Image 
-                loading="lazy"
-                src={advert.gallery[0]}
-                alt={advert.name}
-              />
-              <SC.ContentWrap>
-                <SC.FavButton type="button" onClick={() => handleFavoriteClick(advert)}>
-                  {favoriteStatus[advert._id] ? (
-                    <SC.FavIcon>
-                      <use href={`${icon}#heart-full`} />
-                    </SC.FavIcon>
-                  ) : (
-                    <SC.FavIcon>
-                      <use href={`${icon}#heart-empty`} />
-                    </SC.FavIcon>
-                  )}
-                </SC.FavButton>
-                <SC.Header>{advert.name}</SC.Header>
-                <SC.Price>€{advert.price}.00</SC.Price>
-                <SC.CardItem>
-                  <SC.Rating>
-                    <GoStarFill size="16" color="#FFC531" />{advert.rating}({advert.reviews.length} Reviews)
-                  </SC.Rating>
-                  <SC.Location>
-                    <SC.Icon>
-                      <use href={`${icon}#place-marker`} />
-                    </SC.Icon>
-                    {advert.location}
-                  </SC.Location>
+        {receivedAdverts?.map((advert) => (
+  <SC.ListItem key={advert._id}>
+    <SC.Image 
+      loading="lazy"
+      src={advert.gallery && advert.gallery.length > 0 ? advert.gallery[0] : ''}
+      alt={advert.name}
+    />
+      <SC.ContentWrap>
+        <SC.FavButton type="button" onClick={() => handleFavoriteClick(advert)}>
+          {favoriteStatus[advert._id] ? (
+            <SC.FavIcon>
+              <use href={`${icon}#heart-full`} />
+            </SC.FavIcon>
+          ) : (
+            <SC.FavIcon>
+              <use href={`${icon}#heart-empty`} />
+            </SC.FavIcon>
+          )}
+        </SC.FavButton>
+        <SC.Header>{advert.name}</SC.Header>
+        <SC.Price>€{advert.price}.00</SC.Price>
+        <SC.CardItem>
+          <SC.Rating>
+            <GoStarFill size="16" color="#FFC531" />{advert.rating}({advert.reviews ? advert.reviews.length : 0} Reviews)
+          </SC.Rating>
+          <SC.Location>
+            <SC.Icon>
+              <use href={`${icon}#place-marker`} />
+            </SC.Icon>
+            {advert.location}
+          </SC.Location>
                 </SC.CardItem>
                 <SC.SpecTags>
                   <SC.Tag>
