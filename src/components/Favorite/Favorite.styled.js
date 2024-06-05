@@ -35,15 +35,15 @@ export const ImgWrap = styled.div`
 `;
 
 export const Image = styled.img`
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: 400px;
     border-radius: 10px;
 `;
 
 export const ContentWrap = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 10px;
     justify-content: space-between;
 `
 
