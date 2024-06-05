@@ -2,10 +2,6 @@ import { lazy } from "react";
 
 import { Layout } from "../../components/Layout/Layout";
 
-// import { CatalogPage  } from "../../pages/CatalogPage/CatalogPage";
-// import { FavoritePage } from "../../pages/FavoritePage/FavoritePage";
-// import { Home } from "../../pages/Home/Home";
-// import { NotFoundPage } from "../../pages/NotFoundPage/NotFoundPage";
 const CatalogPage = lazy(() =>
     import("../../pages/CatalogPage/CatalogPage").then(module => ({
       ...module,

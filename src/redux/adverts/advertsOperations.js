@@ -14,13 +14,6 @@ export const advertsApi = createApi({
             }),
             providesTags: ["adverts"]
         })
-        // postOrPutAdverts: builder.mutation({
-        //     query: () => ({
-        //         method: "POST/PUT...",
-        //         url: "/..."
-        //     }),
-        //     invalidatesTags: ["adverts"]
-        // })
     }) 
 })
 
