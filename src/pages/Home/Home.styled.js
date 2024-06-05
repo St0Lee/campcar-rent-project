@@ -3,7 +3,7 @@ import background from "../../pictures/home-background.jpeg";
 
 export const Background = styled.div`
   position: relative;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 50px);
   overflow: hidden;
   &:before {
     content: "";
@@ -26,7 +26,7 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 300px;
+  margin-top: 50px;
   text-align: center;
   text-shadow: ${props => props.theme.shadows.textShadow};
 `;

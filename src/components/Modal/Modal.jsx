@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ImCross } from 'react-icons/im';
 
-import { Reviews } from './Reviews/Reviews';
-import { Features } from './Features/Features';
+import { Reviews } from './components/Reviews/Reviews';
+import { Features } from './components/Features/Features';
 
 import * as SC from './Modal.styled';
 
@@ -11,7 +11,7 @@ const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ toggleModal, advert }) => {
   const [activeSection, setActiveSection] = useState(null);
-  console.log(advert)
+  
   useEffect(() => {
     const closeModal = e => {
       if (e.code === 'Escape') {
@@ -65,7 +65,7 @@ export const Modal = ({ toggleModal, advert }) => {
         <button onClick={() => toggleSection('reviews')}>Reviews</button>
         <button onClick={() => toggleSection('details')}>Details</button>
         {activeSection === 'reviews' && <Reviews reviews={advert.reviews}/>}
-        {activeSection === 'details' && <Features name={advert.name} price={advert.price} gallery={advert.gallery} />}
+        {activeSection === 'details' && <Features advert={advert} />}
       </SC.Inner>
     </SC.Overlay>,
     modalRoot

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useEquipFilter = (data) => {
+export const useEquipFilter = () => {
   const [filterOptions, setFilterOptions] = useState({
     AC: false,
     transmission: false,

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 import * as SC from "./NotFoundPage.styled"
 
 export const NotFoundPage = () => {
@@ -5,8 +7,11 @@ export const NotFoundPage = () => {
         <SC.Background>
             <SC.Content>
                 <SC.Text>
-                    The page was not found
+                    <p>Page Not Found</p>
                 </SC.Text>
+                <Link to="/">
+                    <SC.Button>To home page</SC.Button>
+                </Link>
             </SC.Content>
         </SC.Background>
     )

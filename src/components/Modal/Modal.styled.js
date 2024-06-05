@@ -7,7 +7,6 @@ export const Overlay = styled.div`
   top: 0;
   left: 0;
   z-index: 20;
-
   background-color: ${p => p.theme.colors.backdropBackground};
 `;
 
@@ -16,7 +15,6 @@ export const Inner = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   max-width: 1200px;
   max-height: auto;
   background-color: ${p => p.theme.colors.modalBackground};
@@ -31,10 +29,6 @@ export const CloseBtn = styled.button`
   outline: none;
   cursor: pointer;
   transition: 250ms linear;
-
-  :hover {
-    color: red;
-  }
 `;
 
 export const Image = styled.img`
