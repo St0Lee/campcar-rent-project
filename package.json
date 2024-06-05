@@ -1,6 +1,7 @@
 {
   "name": "campcar-rent-project",
   "version": "0.1.0",
+  "homepage": "https://St0Lee.github.io/campcar-rent-project",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
